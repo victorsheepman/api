@@ -5,6 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './cats/cats.module';
 import { BraceletsModule } from './bracelets/bracelets.module';
 import { ModeloModule } from './modelo/modelo.module';
+import { WsModule } from './ws/ws.module';
+import { SalesModule } from './sales/sales.module';
 
 @Module({
   imports: [
@@ -12,6 +14,8 @@ import { ModeloModule } from './modelo/modelo.module';
     CatsModule,
     BraceletsModule,
     ModeloModule,
+    WsModule,
+    SalesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

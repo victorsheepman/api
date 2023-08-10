@@ -11,7 +11,6 @@ import {
 import { BraceletsService } from './bracelets.service';
 import { CreateBraceletDto } from './dto/create-bracelet.dto';
 import { UpdateBraceletDto } from './dto/update-bracelet.dto';
-
 import { ParseObjectIdPipe } from 'src/utils/parse-object-id-pipe.pipe';
 
 @Controller('bracelets')
@@ -24,7 +23,8 @@ export class BraceletsController {
   }
   @Post('many')
   createMany(@Body() createBraceletDto: CreateBraceletDto[]) {
-    return this.braceletsService.createMany(createBraceletDto);
+    const bracelets = this.braceletsService.createMany(createBraceletDto);
+    return bracelets;
   }
 
   @Get()
