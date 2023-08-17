@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Req,
+  Put,
 } from '@nestjs/common';
 import { BraceletsService } from './bracelets.service';
 import { CreateBraceletDto } from './dto/create-bracelet.dto';
@@ -43,6 +44,14 @@ export class BraceletsController {
     @Body() updateBraceletDto: UpdateBraceletDto,
   ) {
     return this.braceletsService.update(id, updateBraceletDto);
+  }
+
+  @Put('many')
+  updateMany(@Body() updateBraceletDto: UpdateBraceletDto[]) {
+    console.log(updateBraceletDto);
+    const updatedBracelets =
+      this.braceletsService.updateMany(updateBraceletDto);
+    return updatedBracelets;
   }
 
   @Delete(':id')
